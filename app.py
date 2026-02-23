@@ -4,7 +4,7 @@ OpenAI API를 통해 프롬프트를 생성하는 서버
 """
 
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -13,6 +13,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
+@app.route("/")
+def index():
+    return send_from_directory(".", "index.html")
 CORS(app)  # 프런트엔드(127.0.0.1:5500 등)에서의 요청 허용
 
 # ── OpenAI 클라이언트 초기화 ────────────────────────────────
