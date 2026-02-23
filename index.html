@@ -1699,7 +1699,7 @@ async function generatePrompt() {
 
   try {
     // ✅ Flask 백엔드 /chat 엔드포인트로 요청
-    const res = await fetch('http://127.0.0.1:5000/chat', {
+    const res = await fetch('promptgenerator-production-063d.up.railway.app', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userPrompt })
